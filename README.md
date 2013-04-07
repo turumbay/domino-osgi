@@ -1,4 +1,5 @@
 domino-osgi
 ===========
 
-Howto: using OSGI with Lotus Domino Server
+Wiki: [using OSGI with Lotus Domino Server](https://github.com/turumbay/domino-osgi/wiki)
+
