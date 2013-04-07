@@ -51,6 +51,7 @@
     <module>poms</module>
     <module>provision</module>
     <module>money-utils</module>
+    <module>money-utils-ws</module>
   </modules>
 
   <build>
@@ -60,23 +61,12 @@
         <artifactId>maven-pax-plugin</artifactId>
         <version>1.5</version>
         <configuration>
-          <!--
-           | some example Pax-Runner settings
-          -->
           <provision>
             <param>--platform=equinox</param>
+            <param>--profiles=web</param>
           </provision>
         </configuration>
         <executions>
-          <!--
-           | uncomment to auto-generate IDE files
-          <execution>
-            <id>ide-support</id>
-            <goals>
-              <goal>eclipse</goal>
-            </goals>
-          </execution>
-          -->
         </executions>
       </plugin>
     </plugins>
