@@ -52,6 +52,12 @@
           <artifactId>money-utils</artifactId>
           <version>1.0-SNAPSHOT</version>
       </dependency>
+      <dependency>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>org.apache.felix.scr.annotations</artifactId>
+          <optional>true</optional>
+          <version>1.7.0</version>
+      </dependency>
   </dependencies>
 
 </project>

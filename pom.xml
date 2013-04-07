@@ -63,7 +63,7 @@
         <configuration>
           <provision>
             <param>--platform=equinox</param>
-            <param>--profiles=web</param>
+            <param>--profiles=ds,web</param>
           </provision>
         </configuration>
         <executions>
