@@ -1,5 +1,7 @@
 package ru.turumbay.blog.osgi.money.internal;
 
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Service;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
@@ -17,6 +19,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
+@Service(value = CurrencyService.class)
 public class CurrencyServiceImpl implements CurrencyService{
 
     @Override

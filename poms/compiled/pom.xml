@@ -15,6 +15,15 @@
 
   <packaging>pom</packaging>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.felix</groupId>
+      <artifactId>org.apache.felix.scr.annotations</artifactId>
+      <optional>true</optional>
+      <version>1.7.0</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <resources>
       <resource>
