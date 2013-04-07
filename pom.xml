@@ -40,6 +40,9 @@
     -->
     <org.osgi.service.http.port>8080</org.osgi.service.http.port>
     <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <packaging>pom</packaging>
@@ -61,7 +64,7 @@
            | some example Pax-Runner settings
           -->
           <provision>
-            <param>--platform=felix</param>
+            <param>--platform=equinox</param>
           </provision>
         </configuration>
         <executions>

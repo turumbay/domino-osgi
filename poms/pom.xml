@@ -21,6 +21,12 @@
     <module>compiled</module>
   </modules>
 
+  <dependencies>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+      </dependency>
+  </dependencies>
   <build>
     <pluginManagement>
       <plugins>
@@ -69,6 +75,13 @@
         <version>1.0</version>
         <scope>provided</scope>
         <optional>true</optional>
+      </dependency>
+
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.10</version>
+          <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
