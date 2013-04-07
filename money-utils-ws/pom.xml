@@ -52,6 +52,21 @@
           <artifactId>money-utils</artifactId>
           <version>1.0-SNAPSHOT</version>
       </dependency>
+
+      <dependency>
+          <groupId>com.ibm.domino</groupId>
+          <artifactId>com.ibm.domino.napi</artifactId>
+          <version>8.5.3.20110915-2025</version>
+          <optional>true</optional>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>com.ibm.domino</groupId>
+          <artifactId>com.ibm.domino.osgi.core</artifactId>
+          <version>8.5.3.20110915-2025</version>
+          <optional>true</optional>
+          <scope>provided</scope>
+      </dependency>
   </dependencies>
 
 </project>

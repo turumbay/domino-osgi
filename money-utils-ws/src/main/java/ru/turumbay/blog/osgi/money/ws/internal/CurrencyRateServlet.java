@@ -9,6 +9,8 @@ import org.osgi.service.http.NamespaceException;
 import ru.turumbay.blog.osgi.money.Currency;
 import ru.turumbay.blog.osgi.money.CurrencyService;
 
+import com.ibm.domino.osgi.core.context.ContextInfo;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,11 +39,22 @@ public class CurrencyRateServlet extends HttpServlet {
         }
     }
 
+    private final static String PATH = "/rates/USD";
+
     protected void activate(ComponentContext ctx) throws ServletException, NamespaceException {
-       httpService.registerServlet("/rates/USD", this, null, null);
+        try {
+            ContextInfo.registerServletHttpService(PATH, this, null, null);
+        } catch (NoClassDefFoundError ups) {
+            httpService.registerServlet(PATH, this, null, null);
+        }
+
     }
 
     protected void deactivate(ComponentContext ctx) {
-       httpService.unregister("/rates/USD");
+        try {
+            ContextInfo.unregisterHttpService(PATH);
+        } catch (NoClassDefFoundError e) {
+            httpService.unregister(PATH);
+        }
     }
 }

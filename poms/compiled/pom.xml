@@ -15,6 +15,21 @@
 
   <packaging>pom</packaging>
 
+  <repositories>
+    <repository>
+      <id>turumbay.repo</id>
+      <url>https://raw.github.com/turumbay/maven/master/releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </releases>
+    </repository>
+  </repositories>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.felix</groupId>
