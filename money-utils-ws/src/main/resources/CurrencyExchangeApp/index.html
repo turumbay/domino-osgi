@@ -6,16 +6,63 @@
     <link rel="stylesheet" href="css/app.css">
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js" type="text/javascript"></script>
+    <script src="js/raphael-min.js"></script>
+    <script src="js/g.raphael-min.js"></script>
+    <script src="js/g.line-min.js"></script>
     <script src="js/controllers.js"></script>
 </head>
 <body ng-controller="CurrencyListCtrl">
-    <input ng-model="current.amount">
-    <ul>
+    <div class="page-header">
+        <h1>Currency Converter</h1>
+    </div>
+    <p class="span3">
+        <strong>Сюда бы картинку для привлечения внимания и немножео текста</strong>
+    </p>
+    <ul class="span4">
         <li ng-repeat="currency in currencies" ng-controller="CurrencyCtrl" >
-            <img src="{{currency.img}}" />
-            <label for="{{currency.code}}"> {{zho}} - {{currency.description}}</label>
-            <input id="{{currency.code}}" type="number" ng-model="yo"  >
+            <label for="{{currency.code}}"><small> {{currency.name}} - {{currency.description}}</small></label>
+            <input id="{{currency.code}}" type="number" step="0.01" min="0" ng-model="amount" >
+            <p class="muted" ng-hide="currency.name == current.currency">
+                <small>1 {{currency.name}} = {{rate}} {{current.currency}}</small>
+            </p>
         </li>
     </ul>
+    <div class="span5">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#">Month</a>
+            </li>
+        </ul>
+        <div id="canvas"></div>
+    </div>
+    <script>
+        window.onload = function () {
+            var r = Raphael("canvas")
+
+            var x = [], y =[], days = []
+            for (day in TUR.USD ){
+                x.push(day)
+                y.push(TUR.USD[day].rate)
+                days.push(TUR.USD[day].date)
+            }
+
+            var chart = r.linechart(30, 10, r.width * 0.9, 220, x, y, { nostroke: false, axis: "0 0 1 1", symbol: "circle", smooth: true });
+
+            var axisItems = chart.axis[0].text.items
+            for( var i = 0, l = axisItems.length; i < l; i++ ) {
+                if ( i % 2 == 0){
+                  axisItems[i].attr("text", days[i].substr(0,5));
+                }else{
+                    axisItems[i].attr("text", "");
+                }
+            }
+
+            for (var i = 0; i < chart.axis[1].text.items.length; i++) {
+                r.path(['M', 30, chart.axis[1].text.items[i].attrs.y, 'H', r.width * 0.9 + 30]).attr({
+                    stroke : '#EEE'
+                }).toBack();
+            }
+        };
+    </script>
 </body>
 </html>
